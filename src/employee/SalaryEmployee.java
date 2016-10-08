@@ -20,16 +20,19 @@ public class SalaryEmployee extends Employee {
 
     }
     
+    //This method returns the salary of the salaried employee
     public double getSalary()
     {
         return salary;
     }
     
+    //This method sets the salary for the salaried employee
     public void setSalary(double salary)
     {
         this.salary = salary;
     }
     
+    //The payment method for the salaried employee is to return the salary for the year
     @Override
     public double paymentMethod(){
         return salary;

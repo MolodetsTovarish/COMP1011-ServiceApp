@@ -7,6 +7,9 @@ package mishmart;
 
 import employee.CommissionSalesEmployee;
 import employee.Employee;
+import java.util.ArrayList;
+import java.util.GregorianCalendar;
+import java.util.Scanner;
 
 /**
  *
@@ -19,9 +22,43 @@ public class MishMart {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        CommissionSalesEmployee emp1 = new CommissionSalesEmployee("Fe", "Fe", 33, 33, "Street", 'm', 1980, 3, 13, 50, 14.0);
+        /*CommissionSalesEmployee emp1 = new CommissionSalesEmployee("Fe", "Fe", 33, 33, "Street", 'm', 1980, 3, 13, 50, 14.0);
         System.out.println(emp1);
         System.out.println(emp1.getAge());
+        */
+        ArrayList<Employee> employeeList = new ArrayList();
+        Scanner read = new Scanner(System.in);
+        int input;
+        boolean keepGoing = true;
+        
+        while (keepGoing) {
+            ServiceClass.WelcomeMessage();
+            input = read.nextInt();
+            
+            if(input == 1)
+            {
+                String firstName, lastName, address;
+                int employeeID, contactNum;
+                char gender;
+                GregorianCalendar dateOfBirth, today;
+                
+                boolean innerCheck = false;
+                Scanner innerRead = new Scanner(System.in);
+                
+                ServiceClass.inputMessage("first name");
+                do
+                {
+                
+                if(ServiceClass.stringChecker(firstName = innerRead.nextLine()))
+                {
+                    innerCheck = true;
+                    ServiceClass.inputErrorMessage();
+                    innerRead.nextLine();
+                }
+                }while(innerCheck);
+                
+            }
+        }
         
     }
     
