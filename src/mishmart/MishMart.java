@@ -2,9 +2,12 @@ package mishmart;
 
 import employee.CommissionSalesEmployee;
 import employee.Employee;
+import employee.HourlyEmployee;
+import employee.SalaryEmployee;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
+import warehouse.Product;
 
 /**
  *
@@ -22,6 +25,7 @@ public class MishMart {
         System.out.println(emp1.getAge());
         */
         ArrayList<Employee> employeeList = new ArrayList();
+        ArrayList<Product> productList = new ArrayList();
         Scanner read = new Scanner(System.in);
         int input;
         boolean keepGoing = true;
@@ -37,27 +41,29 @@ public class MishMart {
             {
                 
                 ServiceClass.createEmployee();
-                ServiceClass
+                HourlyEmployee.paymentInput();
                 
             }
             
             else if(input == 2)
             {
-                
+                ServiceClass.createEmployee();
+                SalaryEmployee.paymentInput();
             }
             
             else if(input == 3)
             {
-                
+                ServiceClass.createEmployee();
+                CommissionSalesEmployee.paymentInput();
             }
             
             else if(input == 4)
             {
-                
+                keepGoing = false;
             }
             
             else {
-                
+                System.out.println("Please select options 1 - 4");
             }
         }
         

@@ -1,5 +1,8 @@
 package employee;
 
+import java.util.Scanner;
+import mishmart.ServiceClass;
+
 /**
  *
  * @author Misha
@@ -31,6 +34,14 @@ public class SalaryEmployee extends Employee {
     @Override
     public double paymentMethod(){
         return salary;
+    }
+    
+    public static void paymentInput(){
+        double salary;
+        
+        Scanner innerRead = new Scanner(System.in);
+        
+        salary = ServiceClass.readDouble(innerRead, "salary");
     }
     
     @Override

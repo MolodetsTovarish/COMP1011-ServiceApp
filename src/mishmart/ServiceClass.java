@@ -31,7 +31,7 @@ public class ServiceClass {
 
         Scanner innerRead = new Scanner(System.in);
         
-        //Get first name
+        //Get first name from user input
         firstName = readString(innerRead, "first name");
         
         //Get last name
@@ -46,10 +46,6 @@ public class ServiceClass {
         //Get 
         address = readString(innerRead, "address");
         
-        /*
-        if (innerRead.hasDouble
-        */
-        
         //Get 
         year = readInt(innerRead, "year");
         
@@ -59,7 +55,6 @@ public class ServiceClass {
         day = readInt(innerRead, "day");
         
     }
-    
 
     
     public static String readString(Scanner sc, String prompt) {

@@ -18,7 +18,20 @@ public abstract class Employee {
     private char gender;
     private GregorianCalendar dateOfBirth, today;
     
-    // the constructor for the base Employee class, which has all the basic information that will be extended to all the child employee classes
+    /**
+     * 
+     * @param firstName
+     * @param lastName
+     * @param employeeID
+     * @param contactNum
+     * @param address
+     * @param gender
+     * @param year
+     * @param month
+     * @param day 
+     * 
+     * The constructor for the base Employee class, which has all the basic information that will be extended to all the child employee classes
+     */
     public Employee(String firstName, String lastName, int employeeID, int contactNum, String address, char gender, int year, int month, int day) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -33,34 +46,58 @@ public abstract class Employee {
         this.gender = gender;
     }
     
-    //This method returns the employee's first name
+    /**
+     * 
+     * @return String
+     * This method returns the employee's first name
+     */
     public String getFirstName() {
         return firstName;
     }
     
-    //This method sets the employee's first name
+    /**
+     * 
+     * @param firstName 
+     * This method sets the employee's first name
+     */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
     
-    //This method returns the employee's last name
+    /**
+     * 
+     * @return String
+     * This method returns the employee's last name
+     */
     public String getLastName() {
         return lastName;
     }
     
-    //This method sets the employee's last name
+    /**
+     * 
+     * @param lastName 
+     * This method sets the employee's last name
+     */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
     
-    //This method returns the employee's full name
+    /**
+     * 
+     * @return String
+     * This method returns the employee's full name
+     */
     public String getFullName()
     {
         return firstName + " " + lastName;
     }
     
     
-    //This method returns the employee's ID number
+    /**
+     * 
+     * @return int
+     * This method returns the employee's ID number
+     */
     public int getEmployeeID() {
         return employeeID;
     }
@@ -108,17 +145,30 @@ public abstract class Employee {
         this.gender = gender;
     }
     
-    //This method returns the employee's contact number
+    /**
+     * 
+     * @return int
+     * This method returns the employee's contact number
+     */
     public int getContactNumber() {
         return contactNum;
     }
     
-    //This method sets the employee's contact number
+    /**
+     * 
+     * @param contactNum 
+     * This method sets the employee's contact number
+     */
     public void setContactNumber(int contactNum) {
         this.contactNum = contactNum;
     }
     
-    //An abstract payment method that can be overriden in the child classes to get their unique pay calculations
+    /**
+     * 
+     * @return double
+     * 
+     * An abstract payment method that can be overriden in the child classes to get their unique pay calculations
+     */
     public abstract double paymentMethod();
     
     //Returns the information about the employee in a string
