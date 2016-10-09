@@ -29,7 +29,6 @@ public class ServiceClass {
         char gender;
         GregorianCalendar dateOfBirth, today;
 
-        boolean innerCheck = false;
         Scanner innerRead = new Scanner(System.in);
         
         //Get first name
@@ -67,7 +66,7 @@ public class ServiceClass {
             if (ServiceClass.checkString(result)) {
                 return result;
             } else {
-               ServiceClass.inputErrorMessage();
+               inputErrorMessage();
             }
         } while (true);        
     }
@@ -80,7 +79,7 @@ public class ServiceClass {
                 result = innerRead.nextInt();
                 return result;
             } else {
-               ServiceClass.inputErrorMessage();
+               inputErrorMessage();
             }
         } while (true);        
     }
@@ -93,21 +92,14 @@ public class ServiceClass {
                 result = innerRead.nextDouble();
                 return result;
             } else {
-               ServiceClass.inputErrorMessage();
+               inputErrorMessage();
             }
         } while (true);        
     }
         
-    
-    public static void createEmployeeHourly(){
-        createEmployee();
-        paymentInput();
-    }
-    
-    
-    
+        
     public static boolean checkString(String data){
-        return data.isEmpty();
+        return !data.isEmpty();
     }
     
     private static void inputEmployeeMessage(String data)
