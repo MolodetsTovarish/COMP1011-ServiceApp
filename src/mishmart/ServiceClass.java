@@ -85,7 +85,7 @@ public class ServiceClass {
     }
     
     public static double readDouble(Scanner sc, String prompt) {
-        int result = 0.0;
+        double result = 0.0;
         do {
             inputEmployeeMessage(prompt);
             if (innerRead.hasNextDouble()) {
