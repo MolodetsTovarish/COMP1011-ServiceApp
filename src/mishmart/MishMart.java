@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mishmart;
 
 import employee.CommissionSalesEmployee;
@@ -31,31 +26,37 @@ public class MishMart {
         int input;
         boolean keepGoing = true;
         
+        
+        ServiceClass.welcomeMessage();
+        
         while (keepGoing) {
-            ServiceClass.WelcomeMessage();
+            ServiceClass.employeeSelectMessage();
             input = read.nextInt();
             
             if(input == 1)
             {
-                String firstName, lastName, address;
-                int employeeID, contactNum;
-                char gender;
-                GregorianCalendar dateOfBirth, today;
                 
-                boolean innerCheck = false;
-                Scanner innerRead = new Scanner(System.in);
+                ServiceClass.createEmployee();
+                ServiceClass
                 
-                ServiceClass.inputMessage("first name");
-                do
-                {
+            }
+            
+            else if(input == 2)
+            {
                 
-                if(ServiceClass.stringChecker(firstName = innerRead.nextLine()))
-                {
-                    innerCheck = true;
-                    ServiceClass.inputErrorMessage();
-                    innerRead.nextLine();
-                }
-                }while(innerCheck);
+            }
+            
+            else if(input == 3)
+            {
+                
+            }
+            
+            else if(input == 4)
+            {
+                
+            }
+            
+            else {
                 
             }
         }

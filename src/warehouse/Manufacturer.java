@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package warehouse;
 
 /**
@@ -23,40 +18,48 @@ public class Manufacturer {
         this.website = website;
     }
     
+    //Returns the manufacturer's name
     public String getManufacturerName()
     {
         return manufacturerName;
     }
     
+    //Set the manufacturer's name
     public void setManufacturerName(String manufacturerName)
     {
         this.manufacturerName = manufacturerName;
     }
     
+    //Returns the contact number
     public int getContactNum()
     {
         return contactNum;
     }
     
+    //Sets the contact number
     public void setContactNum(int contactNum){
         this.contactNum = contactNum;
     }
     
+    //Returns the address of the manufacturer
     public String getAddress()
     {
         return address;
     }
     
+    //Sets the address of the manufacturer
     public void setAddress(String address)
     {
         this.address = address;
     }
     
+    //Returns the manufacturer's website
     public String getWebsite()
     {
         return website;
     }
     
+    //Sets the manufacturer's website
     public void setWebsite()
     {
         this.website = website;
