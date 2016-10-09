@@ -69,7 +69,7 @@ public class ServiceClass {
             result = sc.nextLine().trim();
             if (checkString(result)) {
                 return result;
-            } else {
+            } else { 
                inputErrorMessage();
             }
         } while (true);        
@@ -79,10 +79,11 @@ public class ServiceClass {
         int result = 0;
         do {
             inputEmployeeMessage(prompt);
-            try {
+            if (sc.hasNextInt()) {
                 return sc.nextInt();               
-            } catch (Exception e) {
+            } else {
                inputErrorMessage();
+               sc.next();
             }
         } while (true);        
     }
@@ -91,10 +92,11 @@ public class ServiceClass {
         double result = 0.0;
         do {
             inputEmployeeMessage(prompt);
-            try {
+            if (sc.hasNextDouble()) {
                 return sc.nextDouble();
-            } catch (Exception e) {
+            } else {
                inputErrorMessage();
+               sc.next(); 
             }
         } while (true);        
     }
