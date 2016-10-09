@@ -7,7 +7,7 @@ import java.util.Scanner;
  *
  * @author Misha
  */
-public abstract class ServiceClass {
+public class ServiceClass {
     
     public static void welcomeMessage()
     {
@@ -33,138 +33,88 @@ public abstract class ServiceClass {
         Scanner innerRead = new Scanner(System.in);
         
         //Get first name
-        ServiceClass.inputEmployeeMessage("first name");
-        do {
-            //ServiceClass.inputEmployeeMessage("first name");
-            if (ServiceClass.checkString(firstName = innerRead.nextLine())) {
-                innerCheck = true;
-                ServiceClass.inputErrorMessage();
-                innerRead.nextLine();
-            } else {
-                innerCheck = false;
-            }
-        } while (innerCheck);
+        firstName = readString(innerRead, "first name");
         
         //Get last name
-        ServiceClass.inputEmployeeMessage("last name");
-        do {
-            if (checkString(lastName = innerRead.nextLine())) {
-                innerCheck = true;
-                ServiceClass.inputErrorMessage();
-                innerRead.nextLine();
-            } else {
-                innerCheck = false;
-            }
-        } while (innerCheck);
+        lastName = readString(innerRead, "last name");
         
         //Get 
-        ServiceClass.inputEmployeeMessage("employee ID");
-        do {
-            //ServiceClass.inputEmployeeMessage("");
-            if (ServiceClass.checkInt(employeeID = innerRead.nextInt())) {
-                innerCheck = true;
-                ServiceClass.inputErrorMessage();
-                innerRead.nextInt();
-            } else {
-                innerCheck = false;
-            }
-        } while (innerCheck);
+        employeeID = readInt(innerRead, "employee ID");
         
         //Get 
-        ServiceClass.inputEmployeeMessage("contact number");
-        do {
-            //ServiceClass.inputEmployeeMessage("");
-            if (ServiceClass.checkInt(contactNum = innerRead.nextInt())) {
-                innerCheck = true;
-                ServiceClass.inputErrorMessage();
-                innerRead.nextInt();
-            } else {
-                innerCheck = false;
-            }
-        } while (innerCheck);
+        contactNum = readInt(innerRead, "contact number");
         
         //Get 
-        ServiceClass.inputEmployeeMessage("address");
-        do {
-            //ServiceClass.inputEmployeeMessage("");
-            if (ServiceClass.checkString(address = innerRead.nextLine())) {
-                innerCheck = true;
-                ServiceClass.inputErrorMessage();
-                innerRead.nextLine();
-            } else {
-                innerCheck = false;
-            }
-        } while (innerCheck);
+        address = readString(innerRead, "address");
         
         //Get 
-        ServiceClass.inputEmployeeMessage("year");
-        do {
-            //ServiceClass.inputEmployeeMessage("");
-            if (ServiceClass.checkString(year = innerRead.nextLine())) {
-                innerCheck = true;
-                ServiceClass.inputErrorMessage();
-                innerRead.nextLine();
-            } else {
-                innerCheck = false;
-            }
-        } while (innerCheck);
+        year = readInt(innerRead, "year");
         
         //Get 
-        ServiceClass.inputEmployeeMessage("month");
-        do {
-            //ServiceClass.inputEmployeeMessage("");
-            if (ServiceClass.checkString(month = innerRead.nextLine())) {
-                innerCheck = true;
-                ServiceClass.inputErrorMessage();
-                innerRead.nextLine();
-            } else {
-                innerCheck = false;
-            }
-        } while (innerCheck);
-        
+        month = readInt(innerRead, "month");        
         //Get 
-        ServiceClass.inputEmployeeMessage("day");
-        do {
-            //ServiceClass.inputEmployeeMessage("");
-            if (checkInt(day = innerRead.nextLine())) {
-                innerCheck = true;
-                ServiceClass.inputErrorMessage();
-                innerRead.nextLine();
-            } else {
-                innerCheck = false;
-            }
-        } while (innerCheck);
+        day = readInt(innerRead, "day");
+        
+    }
+    
 
+    
+    public static String readString(Scanner sc, String prompt) {
+        String result = null;
+        do {
+            inputEmployeeMessage(prompt);
+            result = innerRead.nextLine().trim();
+            if (ServiceClass.checkString(result)) {
+                return result;
+            } else {
+               ServiceClass.inputErrorMessage();
+            }
+        } while (true);        
     }
     
-    public static boolean checkInt(int data){
-        if (Integer.parseInt(data) == null){
-        return ;
-        }
+    public static int readInt(Scanner sc, String prompt) {
+        int result = 0;
+        do {
+            inputEmployeeMessage(prompt);
+            if (innerRead.hasNextInt()) {
+                result = innerRead.nextInt();
+                return result;
+            } else {
+               ServiceClass.inputErrorMessage();
+            }
+        } while (true);        
     }
     
-    public static boolean checkDouble(double data){
+    public static int readDouble(Scanner sc, String prompt) {
+        int result = 0.0;
+        do {
+            inputEmployeeMessage(prompt);
+            if (innerRead.hasNextDouble()) {
+                result = innerRead.nextDouble();
+                return result;
+            } else {
+               ServiceClass.inputErrorMessage();
+            }
+        } while (true);        
+    }
         
-    }
     
-    public void createEmployeeHourly(){
+    public static void createEmployeeHourly(){
         createEmployee();
         paymentInput();
     }
     
-    public abstract void paymentInput();
     
     
     public static boolean checkString(String data){
-        data = data.trim();
         return data.isEmpty();
     }
     
-    public static void inputEmployeeMessage(String data)
+    private static void inputEmployeeMessage(String data)
     {
         System.out.println("Please enter " + data + ":");
     }
-    public static void inputErrorMessage()
+    private static void inputErrorMessage()
     {
         System.out.println("Invalid input!");
     }
