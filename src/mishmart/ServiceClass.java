@@ -75,10 +75,9 @@ public class ServiceClass {
         int result = 0;
         do {
             inputEmployeeMessage(prompt);
-            if (sc.hasNextInt()) {
-                result = sc.nextInt();
-                return result;
-            } else {
+            try {
+                return sc.nextInt();               
+            } catch (Exception e) {
                inputErrorMessage();
             }
         } while (true);        
@@ -88,10 +87,9 @@ public class ServiceClass {
         double result = 0.0;
         do {
             inputEmployeeMessage(prompt);
-            if (sc.hasNextDouble()) {
-                result = sc.nextDouble();
-                return result;
-            } else {
+            try {
+                return sc.nextDouble();
+            } catch (Exception e) {
                inputErrorMessage();
             }
         } while (true);        
