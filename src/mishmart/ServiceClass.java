@@ -62,8 +62,8 @@ public class ServiceClass {
         String result = null;
         do {
             inputEmployeeMessage(prompt);
-            result = innerRead.nextLine().trim();
-            if (ServiceClass.checkString(result)) {
+            result = sc.nextLine().trim();
+            if (checkString(result)) {
                 return result;
             } else {
                inputErrorMessage();
@@ -75,8 +75,8 @@ public class ServiceClass {
         int result = 0;
         do {
             inputEmployeeMessage(prompt);
-            if (innerRead.hasNextInt()) {
-                result = innerRead.nextInt();
+            if (sc.hasNextInt()) {
+                result = sc.nextInt();
                 return result;
             } else {
                inputErrorMessage();
@@ -88,8 +88,8 @@ public class ServiceClass {
         double result = 0.0;
         do {
             inputEmployeeMessage(prompt);
-            if (innerRead.hasNextDouble()) {
-                result = innerRead.nextDouble();
+            if (sc.hasNextDouble()) {
+                result = sc.nextDouble();
                 return result;
             } else {
                inputErrorMessage();
