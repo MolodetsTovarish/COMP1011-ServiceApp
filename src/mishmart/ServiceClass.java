@@ -112,4 +112,8 @@ public class ServiceClass {
     {
         System.out.println("Invalid input!");
     }
+    
+    public static void main(String[] args) {
+        createEmployee();
+    }
 }
