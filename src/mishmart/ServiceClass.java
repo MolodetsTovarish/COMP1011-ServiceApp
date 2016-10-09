@@ -96,6 +96,10 @@ public abstract class ServiceClass {
             }
         } while (innerCheck);
         
+        /*
+        if (innerRead.hasDouble
+        */
+        
         //Get 
         ServiceClass.inputEmployeeMessage("year");
         do {
