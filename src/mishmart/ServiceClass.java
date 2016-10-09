@@ -85,7 +85,7 @@ public class ServiceClass {
         } while (true);        
     }
     
-    public static int readDouble(Scanner sc, String prompt) {
+    public static double readDouble(Scanner sc, String prompt) {
         int result = 0.0;
         do {
             inputEmployeeMessage(prompt);
