@@ -207,6 +207,14 @@ public class ServiceClass {
 
     public static void searchEmployees(ArrayList<Employee> employeeList) {
         System.out.println("Searching employees");
+        int employeeID = readInt("employee ID");
+        for (Employee emp: employeeList) {
+            if (emp.getEmployeeID() == employeeID) {
+                System.out.println("Found: " + emp);
+                return;
+            }
+        };
+        System.out.println("Not found!");
     }
 
 
