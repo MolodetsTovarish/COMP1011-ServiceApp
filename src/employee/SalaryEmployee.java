@@ -41,11 +41,7 @@ public class SalaryEmployee extends Employee {
     }
     
     public void paymentInput(){
-        double salary;
-        
-        Scanner innerRead = new Scanner(System.in);
-        
-        salary = ServiceClass.readDouble("salary");
+        this.salary = ServiceClass.readDouble("salary");
     }
     
     @Override

@@ -38,7 +38,11 @@ public class MishMart {
             } else {
                 employee.paymentInput();
                 employeeList.add(employee);
+                System.out.println();
+                System.out.println("The employee was added to the database.");
+                System.out.println("Summary:");
                 System.out.println(employeeList.toString());
+                System.out.println();
             }        
         }
  

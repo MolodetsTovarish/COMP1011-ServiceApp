@@ -88,13 +88,8 @@ public class HourlyEmployee extends Employee {
     }
     
     public void paymentInput(){
-        int hoursWorked;
-        double payRate;
-        
-        Scanner innerRead = new Scanner(System.in);
-        
-        hoursWorked = ServiceClass.readInt("hours worked");
-        payRate = ServiceClass.readDouble("pay rate");
+        this.hoursWorked = ServiceClass.readInt("hours worked");
+        this.payRate = ServiceClass.readDouble("pay rate");
     }
     
     @Override

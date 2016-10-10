@@ -45,12 +45,8 @@ public class CommissionSalesEmployee extends Employee {
     }
     
     public void paymentInput(){
-        double totalSales, commissionRate;
-        
-        Scanner innerRead = new Scanner(System.in);
-        
-        totalSales = ServiceClass.readDouble("total sales");
-        commissionRate = ServiceClass.readDouble("commission rate");
+        this.totalSales = ServiceClass.readDouble("total sales");
+        this.commissionRate = ServiceClass.readDouble("commission rate");
     }
     
     @Override
