@@ -36,7 +36,7 @@ public class SalaryEmployee extends Employee {
         return salary;
     }
     
-    public static void paymentInput(){
+    public void paymentInput(){
         double salary;
         
         Scanner innerRead = new Scanner(System.in);
