@@ -40,7 +40,7 @@ public class CommissionSalesEmployee extends Employee {
         return totalSales*commissionRate;
     }
     
-    public static void paymentInput(){
+    public void paymentInput(){
         double totalSales, commissionRate;
         
         Scanner innerRead = new Scanner(System.in);
