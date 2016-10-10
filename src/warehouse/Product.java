@@ -69,7 +69,11 @@ public class Product {
     }
     
     public String toString() {
-        return productName + " " + productType + " " + price;
+        return "Product Name: " + productName + 
+               "\nProduct Type: " + productType +
+                "\nID: " + productID +
+                "\nPrice: " + price +
+                "\nManufacturer: " + manufacturer;
     }
     
 }

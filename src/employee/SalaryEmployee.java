@@ -41,6 +41,9 @@ public class SalaryEmployee extends Employee {
         return salary;
     }
     
+    /**
+     * Payment input for use in the service class
+     */
     public void paymentInput(){
         this.salary = ServiceClass.readDouble("salary", 1, SALARY_LIMIT);
     }

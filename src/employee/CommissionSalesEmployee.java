@@ -45,6 +45,9 @@ public class CommissionSalesEmployee extends Employee {
         return totalSales*commissionRate/100;
     }
     
+    /**
+     * Payment input for use in the service class
+     */
     public void paymentInput(){
         this.totalSales = ServiceClass.readDouble("total sales ($)", 0, TOTAL_SALES_LIMIT);
         this.commissionRate = ServiceClass.readDouble("commission rate (%)", 0, 100);
