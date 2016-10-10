@@ -8,6 +8,7 @@ import mishmart.ServiceClass;
  * @author Misha
  */
 public class CommissionSalesEmployee extends Employee {
+    private static final double TOTAL_SALES_LIMIT = 1000000000;
     private double totalSales, commissionRate;
     
     public CommissionSalesEmployee(String firstName, String lastName, int employeeID, int contactNum, String address, String gender, int year, int month, int day, double totalSales, double commissionRate) {
@@ -20,7 +21,7 @@ public class CommissionSalesEmployee extends Employee {
     public CommissionSalesEmployee(String firstName, String lastName, int employeeID, int contactNum, String address, String gender, int year, int month, int day) {
         super(firstName, lastName, employeeID, contactNum, address, gender, year, month, day);
     }
-    
+
     public double getTotalSales(){
         return totalSales;
     }
@@ -41,12 +42,12 @@ public class CommissionSalesEmployee extends Employee {
     
     @Override
     public double paymentMethod(){
-        return totalSales*commissionRate;
+        return totalSales*commissionRate/100;
     }
     
     public void paymentInput(){
-        this.totalSales = ServiceClass.readDouble("total sales");
-        this.commissionRate = ServiceClass.readDouble("commission rate");
+        this.totalSales = ServiceClass.readDouble("total sales ($)", 0, TOTAL_SALES_LIMIT);
+        this.commissionRate = ServiceClass.readDouble("commission rate (%)", 0, 100);
     }
     
     @Override

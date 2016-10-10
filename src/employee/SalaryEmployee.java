@@ -8,7 +8,8 @@ import mishmart.ServiceClass;
  * @author Misha
  */
 public class SalaryEmployee extends Employee {
-    
+
+    private static final double SALARY_LIMIT = 10000000;
     private double salary;
     
     public SalaryEmployee(String firstName, String lastName, int employeeID, int contactNum, String address, String gender, int year, int month, int day, double salary){
@@ -41,7 +42,7 @@ public class SalaryEmployee extends Employee {
     }
     
     public void paymentInput(){
-        this.salary = ServiceClass.readDouble("salary");
+        this.salary = ServiceClass.readDouble("salary", 1, SALARY_LIMIT);
     }
     
     @Override

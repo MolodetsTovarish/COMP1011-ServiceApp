@@ -139,17 +139,21 @@ public class ServiceClass {
         } while (true);        
     }
 
-    private static void rangeErrorMessage(int start, int end) {
+    private static void rangeErrorMessage(Number start, Number end) {
         System.out.println("The input has to be between "+ start + " and " + end);
     }
 
-    public static double readDouble(String prompt) {
+    public static double readDouble(String prompt, double start, double end) {
         Scanner sc = new Scanner(System.in);
         double result = 0.0;
         do {
             inputEmployeeMessage(prompt);
             if (sc.hasNextDouble()) {
-                return sc.nextDouble();
+                result = sc.nextInt();
+                if (result < start || result > end) {
+                    rangeErrorMessage(start, end);
+                } else
+                    return result;
             } else {
                inputErrorMessage();
                sc.next(); 
