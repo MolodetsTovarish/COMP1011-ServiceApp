@@ -8,19 +8,23 @@ import java.util.Scanner;
  * @author Misha
  */
 public class ServiceClass {
+    public final static int HOURLY_EMPLOYEE = 1;
+    public final static int SALARIED_EMPLOYEE = 2;
+    public final static int COMMISSIONED_EMPLOYEE = 3;
+    public final static int NO_EMPLOYEE = 4;
     
     public static void welcomeMessage()
     {
         System.out.println("Welcome to MishMart, for all your product needs:");
     }
     
-    public static void employeeSelectMessage()
+    public static String employeeSelectMessage()
     {
-        System.out.println("Please enter an option:\n"
+       return "Please enter an option:\n"
             + "1. Create an hourly employee.\n"
             + "2. Create a salaried employee.\n"
             + "3. Create a commission employee.\n"
-            + "4. Exit;");
+            + "4. Exit;";
     }
     
     public static void createEmployee() {
@@ -53,6 +57,33 @@ public class ServiceClass {
         month = readInt(innerRead, "month");        
         //Get 
         day = readInt(innerRead, "day");
+        
+        do {
+        
+        input = readInt(innerRead, employeeSelectMessage());
+        
+        
+        if(input == HOURLY_EMPLOYEE)
+            {
+               return new HourlyEmployee(firstName, lastName, employeeID, contactNum, address, gender, year, month, day);                
+            }
+            
+            else if(input == SALARIED_EMPLOYEE)
+            {
+               return new SalaryEmployee(firstName, lastName, employeeID, contactNum, address, gender, year, month, day);
+            }
+            
+            else if(input == COMMISSIONED_EMPLOYEE)
+            {
+               return new CommissionSalesEmployee(firstName, lastName, employeeID, contactNum, address, gender, year, month, day);
+            }
+            
+            else if(input == NO_EMPLOYEE)
+            {
+               return null;
+            }            
+        }
+      } while (input > 4 || input < 1)
         
     }
 
