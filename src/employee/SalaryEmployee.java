@@ -45,7 +45,7 @@ public class SalaryEmployee extends Employee {
         
         Scanner innerRead = new Scanner(System.in);
         
-        salary = ServiceClass.readDouble(innerRead, "salary");
+        salary = ServiceClass.readDouble("salary");
     }
     
     @Override

@@ -31,7 +31,7 @@ public class MishMart {
         
         ServiceClass.welcomeMessage();
         
-        while (keepGoing) {
+        while (ServiceClass.newEmployeeMessage()) {
             Employee employee = ServiceClass.createEmployee();
             if (employee == null) {
                 keepGoing = false;

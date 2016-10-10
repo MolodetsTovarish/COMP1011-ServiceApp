@@ -1,8 +1,7 @@
 package employee;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.Period;
+import mishmart.ServiceClass;
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -176,7 +175,7 @@ public abstract class Employee {
     public String toString() {
         return "Name:" + getFullName() +
                 "\nAge: " + getAge() +
-                "\nBirthday: " + getDateOfBirth() +
+                "\nBirthday: " + ServiceClass.formatDate(getDateOfBirth()) +
                 "\nContact Number: " + getContactNumber() +
                 "\nGender: " + getGender() +
                 "\nAddress: " + getAddress() +

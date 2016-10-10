@@ -49,8 +49,8 @@ public class CommissionSalesEmployee extends Employee {
         
         Scanner innerRead = new Scanner(System.in);
         
-        totalSales = ServiceClass.readDouble(innerRead, "total sales");
-        commissionRate = ServiceClass.readDouble(innerRead, "commission rate");
+        totalSales = ServiceClass.readDouble("total sales");
+        commissionRate = ServiceClass.readDouble("commission rate");
     }
     
     @Override

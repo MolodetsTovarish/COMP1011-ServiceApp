@@ -93,8 +93,8 @@ public class HourlyEmployee extends Employee {
         
         Scanner innerRead = new Scanner(System.in);
         
-        hoursWorked = ServiceClass.readInt(innerRead, "hours worked");
-        payRate = ServiceClass.readDouble(innerRead, "pay rate");
+        hoursWorked = ServiceClass.readInt("hours worked");
+        payRate = ServiceClass.readDouble("pay rate");
     }
     
     @Override
