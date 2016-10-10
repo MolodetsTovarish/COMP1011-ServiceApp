@@ -4,6 +4,9 @@ import employee.CommissionSalesEmployee;
 import employee.Employee;
 import employee.HourlyEmployee;
 import employee.SalaryEmployee;
+import warehouse.Product;
+
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 import java.text.SimpleDateFormat;
@@ -29,7 +32,22 @@ public class ServiceClass {
             + "2. Create a salaried employee.\n"
             + "3. Create a commission employee.\n";
     }
-    
+
+    public static void enterEmployees(ArrayList employeeList) {// Have the client enter the employees
+        while (ServiceClass.newEmployeeMessage()) {
+            Employee employee = ServiceClass.createEmployee();
+
+            employee.paymentInput();
+            // Save employee in the list
+            employeeList.add(employee);
+            System.out.println();
+            System.out.println("The employee was added to the database.");
+            System.out.println("Summary:");
+            System.out.println(employeeList.toString());
+            System.out.println();
+        }
+    }
+
     public static Employee createEmployee() {
         String firstName, lastName, address, gender;
         int employeeID, contactNum, year, month, day;
@@ -176,4 +194,28 @@ public class ServiceClass {
     public static void main(String[] args) {
         createEmployee();
     }
+
+    public static int displayMenu() {
+        return readInt("Choose from following options:\n" +
+                "1. Enter employees\n" +
+                "2. Search employees\n" +
+                "3. Enter products\n" +
+                "4. Search products\n" +
+                "0. Exit");
+    }
+
+
+    public static void searchEmployees(ArrayList<Employee> employeeList) {
+        System.out.println("Searching employees");
+    }
+
+
+    public static void enterProducts(ArrayList<Product> productList) {
+        System.out.println("Entering products");
+    }
+
+    public static void searchProducts(ArrayList<Product> productList) {
+        System.out.println("Searching products");
+    };
+
 }

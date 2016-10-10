@@ -14,7 +14,11 @@ import warehouse.Product;
  * @author Misha
  */
 public class MishMart {
-
+    public final static int ENTER_EMPLOYEES_CHOICE = 1;
+    public final static int SEARCH_EMPLOYEES_CHOICE = 2;
+    public final static int ENTER_PRODUCTS_CHOICE = 3;
+    public final static int SEARCH_PRODUCTS_CHOICE = 4;
+    public final static int EXIT_CHOICE = 0;
     /**
      * @param args the command line arguments
      */
@@ -24,27 +28,39 @@ public class MishMart {
         System.out.println(emp1);
         System.out.println(emp1.getAge());
         */
-        ArrayList<Employee> employeeList = new ArrayList();
-        ArrayList<Product> productList = new ArrayList();       
-        boolean keepGoing = true;
-        
+        ArrayList<Product> productList = new ArrayList();
+        ArrayList<Employee> employeeList = new ArrayList<Employee>();
         
         ServiceClass.welcomeMessage();
-        
-        while (ServiceClass.newEmployeeMessage()) {
-            Employee employee = ServiceClass.createEmployee();
-            if (employee == null) {
-                keepGoing = false;
-            } else {
-                employee.paymentInput();
-                employeeList.add(employee);
-                System.out.println();
-                System.out.println("The employee was added to the database.");
-                System.out.println("Summary:");
-                System.out.println(employeeList.toString());
-                System.out.println();
-            }        
-        }
+        int choice = 0;
+        do {
+            choice = ServiceClass.displayMenu();
+            switch (choice) {
+                case ENTER_EMPLOYEES_CHOICE:
+                    ServiceClass.enterEmployees(employeeList);
+                    break;
+                case SEARCH_EMPLOYEES_CHOICE:
+                    ServiceClass.searchEmployees(employeeList);
+                    break;
+                case ENTER_PRODUCTS_CHOICE:
+                    ServiceClass.enterProducts(productList);
+                    break;
+                case SEARCH_PRODUCTS_CHOICE:
+                    ServiceClass.searchProducts(productList);
+                    break;
+                case EXIT_CHOICE:
+                    System.out.println("Bye!");
+                    break;
+                default:
+                    System.out.println("Invalid choice");
+                    break;
+            }
+
+        } while (choice != EXIT_CHOICE);
+
+
+        // Do search based on employee ID
+
  
         
     }
