@@ -81,7 +81,7 @@ public class HourlyEmployee extends Employee {
         return (double)hoursWorked * payRate;
     }
     
-    public static void paymentInput(){
+    public void paymentInput(){
         int hoursWorked;
         double payRate;
         
