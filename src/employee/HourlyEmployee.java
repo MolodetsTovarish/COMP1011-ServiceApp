@@ -88,7 +88,7 @@ public class HourlyEmployee extends Employee {
     }
     
     public void paymentInput(){
-        this.hoursWorked = ServiceClass.readInt("hours worked");
+        this.hoursWorked = ServiceClass.readInt("hours worked", 0, 10000);
         this.payRate = ServiceClass.readDouble("pay rate");
     }
     
