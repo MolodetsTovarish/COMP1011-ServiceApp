@@ -47,6 +47,14 @@ public class ServiceClass {
             System.out.println();
         }
     }
+    
+    
+    public static void enterProducts(ArrayList<Product> productList) {
+        while (ServiceClass.newProductMessage()) {
+            
+        }
+    }
+    
 
     public static Employee createEmployee() {
         String firstName, lastName, address, gender;
@@ -160,6 +168,15 @@ public class ServiceClass {
         } while (answer < 1 || answer > 2);
         return answer == 1;
     }
+    
+    public static boolean newProductMessage()
+    {
+        int answer = 0;
+        do {
+            answer = readInt("Enter the data for new product: 1 - yes, 2 - no?");
+        } while (answer < 1 || answer > 2);
+        return answer == 1;
+    }
 
     private static void inputEmployeeMessage(String data)
     {
@@ -209,10 +226,6 @@ public class ServiceClass {
         System.out.println("Searching employees");
     }
 
-
-    public static void enterProducts(ArrayList<Product> productList) {
-        System.out.println("Entering products");
-    }
 
     public static void searchProducts(ArrayList<Product> productList) {
         System.out.println("Searching products");
