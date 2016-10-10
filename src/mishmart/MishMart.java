@@ -14,24 +14,26 @@ import warehouse.Product;
  * @author Misha
  */
 public class MishMart {
+
     public final static int ENTER_EMPLOYEES_CHOICE = 1;
     public final static int SEARCH_EMPLOYEES_CHOICE = 2;
     public final static int ENTER_PRODUCTS_CHOICE = 3;
     public final static int SEARCH_PRODUCTS_CHOICE = 4;
     public final static int EXIT_CHOICE = 0;
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
+
         //Product and Employee array lists for storing Product and Employee objects
         ArrayList<Product> productList = new ArrayList<Product>();
         ArrayList<Employee> employeeList = new ArrayList<Employee>();
-        
+
         //Displays welcome message
         ServiceClass.welcomeMessage();
-        
+
         //User picks what action they want to do by inputing the integers that correspond with the choices
         int choice = 0;
         do {
@@ -65,5 +67,5 @@ public class MishMart {
         } while (choice != EXIT_CHOICE);
 
     }
-    
+
 }
