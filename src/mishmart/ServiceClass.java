@@ -7,6 +7,8 @@ import employee.SalaryEmployee;
 import warehouse.Product;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 import java.text.SimpleDateFormat;
@@ -36,8 +38,6 @@ public class ServiceClass {
     public static void enterEmployees(ArrayList employeeList) {// Have the client enter the employees
         while (ServiceClass.newEmployeeMessage()) {
             Employee employee = ServiceClass.createEmployee();
-
-            employee.paymentInput();
             // Save employee in the list
             employeeList.add(employee);
             System.out.println();
@@ -68,29 +68,31 @@ public class ServiceClass {
         lastName = readString("last name");
         
         //Get 
-        employeeID = readInt("employee ID");
+        employeeID = readInt("employee ID", 0, Integer.MAX_VALUE);
         
         //Get 
-        contactNum = readInt("contact number");
+        contactNum = readInt("contact number", 0, Integer.MAX_VALUE);
         
         //Get 
         address = readString("address");
         
         gender = readString("gender");
         
-        //Get 
-        year = readInt( "year");
+        //Get
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(new Date());
+        int currentYear = cal.get(Calendar.YEAR);
+        year = readInt( "year", 1900, currentYear - 18);
         
         //Get 
-        month = readInt( "month");        
+        month = readInt( "month", 1, 12);
         //Get 
-        day = readInt( "day");
+        day = readInt( "day", 1, 31);
         
         
         int type = -1;
         Employee employee = null;
-        do {
-        type = readInt( employeeTypeSelectMessage());
+        type = readInt( employeeTypeSelectMessage(), 1, 3);
         
         if(type == HOURLY_EMPLOYEE)
             {
@@ -106,8 +108,8 @@ public class ServiceClass {
             {
                employee =  new CommissionSalesEmployee(firstName, lastName, employeeID, contactNum, address, gender, year, month, day);
             }
-        }
-        while (type > 3 || type < 1);
+        // Ask for payment-specific info
+        employee.paymentInput();
         return employee;
         
     }
@@ -127,27 +129,39 @@ public class ServiceClass {
         } while (true);        
     }
     
-    public static int readInt(String prompt) {
+    public static int readInt(String prompt, int start, int end) {
         Scanner sc = new Scanner(System.in);
         int result = 0;
         do {
             inputEmployeeMessage(prompt);
             if (sc.hasNextInt()) {
-                return sc.nextInt();               
+                result = sc.nextInt();
+                if (result < start || result > end) {
+                    rangeErrorMessage(start, end);
+                } else
+                    return result;
             } else {
                inputErrorMessage();
                sc.next();
             }
         } while (true);        
     }
-    
-    public static double readDouble(String prompt) {
+
+    private static void rangeErrorMessage(Number start, Number end) {
+        System.out.println("The input has to be between "+ start + " and " + end);
+    }
+
+    public static double readDouble(String prompt, double start, double end) {
         Scanner sc = new Scanner(System.in);
         double result = 0.0;
         do {
             inputEmployeeMessage(prompt);
             if (sc.hasNextDouble()) {
-                return sc.nextDouble();
+                result = sc.nextInt();
+                if (result < start || result > end) {
+                    rangeErrorMessage(start, end);
+                } else
+                    return result;
             } else {
                inputErrorMessage();
                sc.next(); 
@@ -162,10 +176,7 @@ public class ServiceClass {
 
     public static boolean newEmployeeMessage()
     {
-        int answer = 0;
-        do {
-            answer = readInt("Enter the data for new employee: 1 - yes, 2 - no?");
-        } while (answer < 1 || answer > 2);
+        int answer = readInt("Enter the data for new employee: 1 - yes, 2 - no?", 1, 2);
         return answer == 1;
     }
     
@@ -186,20 +197,7 @@ public class ServiceClass {
     {
         System.out.println("Invalid input!");
     }
-    
-    private static boolean continueMessage()
-    {
-        int input = readInt("Continue adding employees?\n1. Yes\n2. No");
 
-        do {
-            if (input == 1) {
-                return true;
-            } else if (input == 2) {
-                return false;
-            }
-        } while (input < 1 || input > 2);
-        return false;
-    }
 
     public static String formatDate(GregorianCalendar date) {
         SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
@@ -218,12 +216,20 @@ public class ServiceClass {
                 "2. Search employees\n" +
                 "3. Enter products\n" +
                 "4. Search products\n" +
-                "0. Exit");
+                "0. Exit", 0, 4);
     }
 
 
     public static void searchEmployees(ArrayList<Employee> employeeList) {
         System.out.println("Searching employees");
+        int employeeID = readInt("employee ID", 1, Integer.MAX_VALUE);
+        for (Employee emp: employeeList) {
+            if (emp.getEmployeeID() == employeeID) {
+                System.out.println("Found: " + emp);
+                return;
+            }
+        };
+        System.out.println("Not found!");
     }
 
 

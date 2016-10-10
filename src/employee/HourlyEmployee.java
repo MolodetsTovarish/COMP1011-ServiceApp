@@ -8,7 +8,9 @@ import mishmart.ServiceClass;
  * @author Misha
  */
 public class HourlyEmployee extends Employee {
-    
+
+    private static final int HOURS_LIMIT = 10000;
+    private static final double PAY_RATE_LIMIT = 1000000;
     private int hoursWorked;
     private double payRate;
     
@@ -88,8 +90,8 @@ public class HourlyEmployee extends Employee {
     }
     
     public void paymentInput(){
-        this.hoursWorked = ServiceClass.readInt("hours worked");
-        this.payRate = ServiceClass.readDouble("pay rate");
+        this.hoursWorked = ServiceClass.readInt("hours worked", 0, HOURS_LIMIT);
+        this.payRate = ServiceClass.readDouble("pay rate ($)", 1, PAY_RATE_LIMIT);
     }
     
     @Override

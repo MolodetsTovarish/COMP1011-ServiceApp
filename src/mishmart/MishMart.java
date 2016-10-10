@@ -58,11 +58,6 @@ public class MishMart {
 
         } while (choice != EXIT_CHOICE);
 
-
-        // Do search based on employee ID
-
- 
-        
     }
     
 }
