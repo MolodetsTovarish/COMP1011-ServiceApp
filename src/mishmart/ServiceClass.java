@@ -24,7 +24,7 @@ public class ServiceClass {
     
     public static String employeeSelectMessage()
     {
-       return "Please enter an option:\n"
+       return "an option:\n"
             + "1. Create an hourly employee.\n"
             + "2. Create a salaried employee.\n"
             + "3. Create a commission employee.\n"
@@ -34,8 +34,7 @@ public class ServiceClass {
     public static Employee createEmployee() {
         String firstName, lastName, address, gender;
         int employeeID, contactNum, year, month, day;
-        
-        GregorianCalendar dateOfBirth, today;
+        GregorianCalendar dateOfBirth = new GregorianCalendar();
 
         Scanner innerRead = new Scanner(System.in);
         
@@ -64,11 +63,11 @@ public class ServiceClass {
         //Get 
         day = readInt(innerRead, "day");
         
+        
         int input = -1;
         do {
         
         input = readInt(innerRead, employeeSelectMessage());
-        
         
         if(input == HOURLY_EMPLOYEE)
             {
@@ -147,6 +146,22 @@ public class ServiceClass {
     private static void inputErrorMessage()
     {
         System.out.println("Invalid input!");
+    }
+    
+    private static boolean continueMessage()
+    {
+        Scanner innerRead = new Scanner(System.in);
+        int input = readInt(innerRead, "Continue adding employees?\n1. Yes\n2. No");
+        
+        if(input == 1)
+        {
+            return true;
+        }
+        else if(input == 2)
+        {
+            return false;
+        }
+        return null;
     }
     
     public static void main(String[] args) {

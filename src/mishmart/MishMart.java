@@ -38,6 +38,7 @@ public class MishMart {
             } else {
                 employee.paymentInput();
                 employeeList.add(employee);
+                System.out.println(employeeList.toString());
             }        
         }
  
