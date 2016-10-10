@@ -25,47 +25,22 @@ public class MishMart {
         System.out.println(emp1.getAge());
         */
         ArrayList<Employee> employeeList = new ArrayList();
-        ArrayList<Product> productList = new ArrayList();
-        Scanner read = new Scanner(System.in);
-        int input;
+        ArrayList<Product> productList = new ArrayList();       
         boolean keepGoing = true;
         
         
         ServiceClass.welcomeMessage();
         
         while (keepGoing) {
-            ServiceClass.employeeSelectMessage();
-            input = read.nextInt();
-            
-            if(input == 1)
-            {
-                
-                ServiceClass.createEmployee();
-                HourlyEmployee.paymentInput();
-                
-            }
-            
-            else if(input == 2)
-            {
-                ServiceClass.createEmployee();
-                SalaryEmployee.paymentInput();
-            }
-            
-            else if(input == 3)
-            {
-                ServiceClass.createEmployee();
-                CommissionSalesEmployee.paymentInput();
-            }
-            
-            else if(input == 4)
-            {
+            Employee employee = ServiceClass.createEmployee();
+            if (employee == null) {
                 keepGoing = false;
-            }
-            
-            else {
-                System.out.println("Please select options 1 - 4");
-            }
+            } else {
+                employee.paymentInput();
+                employeeList.add(employee);
+            }        
         }
+ 
         
     }
     
