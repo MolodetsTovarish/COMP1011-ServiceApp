@@ -1,5 +1,9 @@
 package mishmart;
 
+import employee.CommissionSalesEmployee;
+import employee.Employee;
+import employee.HourlyEmployee;
+import employee.SalaryEmployee;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 
@@ -24,13 +28,13 @@ public class ServiceClass {
             + "1. Create an hourly employee.\n"
             + "2. Create a salaried employee.\n"
             + "3. Create a commission employee.\n"
-            + "4. Exit;";
+            + "4. Exit";
     }
     
-    public static void createEmployee() {
-        String firstName, lastName, address;
+    public static Employee createEmployee() {
+        String firstName, lastName, address, gender;
         int employeeID, contactNum, year, month, day;
-        char gender;
+        
         GregorianCalendar dateOfBirth, today;
 
         Scanner innerRead = new Scanner(System.in);
@@ -50,6 +54,8 @@ public class ServiceClass {
         //Get 
         address = readString(innerRead, "address");
         
+        gender = readString(innerRead, "gender");
+        
         //Get 
         year = readInt(innerRead, "year");
         
@@ -58,6 +64,7 @@ public class ServiceClass {
         //Get 
         day = readInt(innerRead, "day");
         
+        int input = -1;
         do {
         
         input = readInt(innerRead, employeeSelectMessage());
@@ -83,7 +90,8 @@ public class ServiceClass {
                return null;
             }            
         }
-      } while (input > 4 || input < 1)
+        while (input > 4 || input < 1);
+        return null;
         
     }
 

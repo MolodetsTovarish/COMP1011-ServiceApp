@@ -10,11 +10,15 @@ import mishmart.ServiceClass;
 public class CommissionSalesEmployee extends Employee {
     private double totalSales, commissionRate;
     
-    public CommissionSalesEmployee(String firstName, String lastName, int employeeID, int contactNum, String address, char gender, int year, int month, int day, double totalSales, double commissionRate) {
+    public CommissionSalesEmployee(String firstName, String lastName, int employeeID, int contactNum, String address, String gender, int year, int month, int day, double totalSales, double commissionRate) {
         
         super(firstName, lastName, employeeID, contactNum, address, gender, year, month, day);
         this.totalSales = totalSales;
         this.commissionRate = commissionRate;
+    }
+
+    public CommissionSalesEmployee(String firstName, String lastName, int employeeID, int contactNum, String address, String gender, int year, int month, int day) {
+        super(firstName, lastName, employeeID, contactNum, address, gender, year, month, day);
     }
     
     public double getTotalSales(){

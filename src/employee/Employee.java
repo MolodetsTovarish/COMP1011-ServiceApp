@@ -13,9 +13,8 @@ import java.util.GregorianCalendar;
  */
 public abstract class Employee {
     
-    private String firstName, lastName, address;
+    private String firstName, lastName, address, gender;
     private int employeeID, contactNum;
-    private char gender;
     private GregorianCalendar dateOfBirth, today;
     
     /**
@@ -32,7 +31,7 @@ public abstract class Employee {
      * 
      * The constructor for the base Employee class, which has all the basic information that will be extended to all the child employee classes
      */
-    public Employee(String firstName, String lastName, int employeeID, int contactNum, String address, char gender, int year, int month, int day) {
+    public Employee(String firstName, String lastName, int employeeID, int contactNum, String address, String gender, int year, int month, int day) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.employeeID = employeeID;
@@ -136,12 +135,12 @@ public abstract class Employee {
     }
     
     //This method returns the employee's gender
-    public char getGender() {
+    public String getGender() {
         return gender;
     }
     
     //This method sets the employee's gender
-    public void setGender(char gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
     
@@ -170,6 +169,8 @@ public abstract class Employee {
      * An abstract payment method that can be overriden in the child classes to get their unique pay calculations
      */
     public abstract double paymentMethod();
+    
+    public abstract void paymentInput();
     
     //Returns the information about the employee in a string
     public String toString() {

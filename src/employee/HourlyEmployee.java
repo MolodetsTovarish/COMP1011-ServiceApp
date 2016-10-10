@@ -27,13 +27,19 @@ public class HourlyEmployee extends Employee {
      * @param payRate 
      * The hourly employee constructor adds hoursWorked and payRate to be used for the hourly emloyee's pay calculation
      */
-    public HourlyEmployee(String firstName, String lastName, int employeeID, int contactNum, String address, char gender, int year, int month, int day, int hoursWorked, double payRate){
+    public HourlyEmployee(String firstName, String lastName, int employeeID, int contactNum, String address, String gender, int year, int month, int day, int hoursWorked, double payRate){
         
         super(firstName, lastName, employeeID, contactNum, address, gender, year, month, day);
         this.hoursWorked = hoursWorked;
         this.payRate = payRate;
 
     }
+
+    public HourlyEmployee(String firstName, String lastName, int employeeID, int contactNum, String address, String gender, int year, int month, int day) {
+        super(firstName, lastName, employeeID, contactNum, address, gender, year, month, day);
+    }
+    
+    
     
     /**
      * 

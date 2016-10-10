@@ -11,11 +11,15 @@ public class SalaryEmployee extends Employee {
     
     private double salary;
     
-    public SalaryEmployee(String firstName, String lastName, int employeeID, int contactNum, String address, char gender, int year, int month, int day, double salary){
+    public SalaryEmployee(String firstName, String lastName, int employeeID, int contactNum, String address, String gender, int year, int month, int day, double salary){
         
         super(firstName, lastName, employeeID, contactNum, address, gender, year, month, day);
         this.salary = salary;
 
+    }
+
+    public SalaryEmployee(String firstName, String lastName, int employeeID, int contactNum, String address, String gender, int year, int month, int day) {
+        super(firstName, lastName, employeeID, contactNum, address, gender, year, month, day);
     }
     
     //This method returns the salary of the salaried employee
